@@ -6,69 +6,67 @@ In the competitive retail industry, the ability to accurately forecast product s
 
 **🎯 Objective & Target Metric**
 
-**Goal:**
+* **Goal:**
 Build a reliable model to forecast product sales with high accuracy across various stores.
 
-**Primary Evaluation Metric:**
+* **Primary Evaluation Metric:**
 Mean Absolute Percentage Error (MAPE) — chosen for its interpretability and relevance in expressing forecast errors as percentages.
 
 **🧠 Approach & Methodology**
 
 **1. Exploratory Data Analysis (EDA)**
 
-   a. Examined the distribution of stores by type and region.
-   b. Analyzed sales distribution and identified outliers.
-   c. Explored temporal trends and seasonality in sales.
-   d. Assessed the impact of promotions and holidays on sales.
+* Examined the distribution of stores by type and region.
+* Analyzed sales distribution and identified outliers.
+* Explored temporal trends and seasonality in sales.
+* Assessed the impact of promotions and holidays on sales.
 
 **2. Hypothesis Testing**
 
-     a. Discount Day Average Sales are higher than average sales on Non-Discount Days
-     b. Holiday Average Sales are lesser than average sales on Non-Holidays
-     c. Average Sales of Store Type S4 is higher and is followed by S3 , S1 ,S2.
-     d. Average Sales of Region_Code R1 is higher and is followed by R3 , R2 ,R1.
-     e. A higher number of orders strongly and significantly correlates with higher sales. The relationship is positive and monotonic — as order count increases, so does sales.
+* Discount Day Average Sales are higher than average sales on Non-Discount Days\
+* Holiday Average Sales are lesser than average sales on Non-Holidays
+* Average Sales of Store Type S4 is higher and is followed by S3 , S1 ,S2.
+* Average Sales of Region_Code R1 is higher and is followed by R3 , R2 ,R1.
+* A higher number of orders strongly and significantly correlates with higher sales. The relationship is positive and monotonic — as order count increases, so does sales.
 
-**3. Feature Engineering**
+**3. Feature Engineering** 
 
-     a. Created temporal features such as day of week, month, holiday flags, and lagged sales.
-     b. Encoded categorical variables for store type, location type, and region.
-     c. Added rolling averages and previous sales metrics to capture trends.
+* Created temporal features such as day of week, month, holiday flags, and lagged sales.
+* Encoded categorical variables for store type, location type, and region.
+* Added rolling averages and previous sales metrics to capture trends.
 
 **4. Machine Learning Modelling**
 
-     a. Trained classical time series models: ARIMA (14.93% MAPE), SARIMAX (8.51%), Prophet (19.63%)
-     b. Developed machine learning models:
-   Linear Regression: 9.02% MAPE
-   Random Forest Regressor: 9.44% MAPE
-   XGBoost Regressor: 2.58% MAPE (best performer)
+   * Trained classical time series models: ARIMA (14.93% MAPE), SARIMAX (8.51%), Prophet (19.63%)
+   *  Developed machine learning models: Linear Regression: (9.02% MAPE) ,Random Forest Regressor: 9.44% MAPE, XGBoost Regressor: 2.58% MAPE (best performer)
 
 **📊 Key Insights**
-Store and Location Distribution:
+
+* Store and Location Distribution:
 Store Type S1 and Location Type L1 dominate, with Region R1 having the highest number of stores.
 
-Sales Distribution:
+* Sales Distribution:
 Sales are right-skewed, mostly between ₹10,000 and ₹60,000. Extreme outliers (₹247k max) heavily influence total revenue.
 
-Performance by Store and Location:
+* Performance by Store and Location:
 Store Type S4 and Location Type L2 achieve the highest average sales, while Store Type S2 and Locations L3, L4, L5 underperform.
 
-Discount and Holiday Effects:
+* Discount and Holiday Effects:
 Sales increase on discount days but drop on holidays compared to regular days.
 
-Sales Over Time and Order Correlation:
+* Sales Over Time and Order Correlation:
 Sales show seasonal fluctuations without clear growth trends. There is a strong positive correlation between order count and total sales.
 
 
 **🚀 Deployment Summary**
 
-The final XGBoost model (2.58% MAPE) was serialized using pickle.
+* The final XGBoost model (2.58% MAPE) was serialized using pickle.
 
-A Flask API was developed for serving predictions locally.
+* A Flask API was developed for serving predictions locally.
 
-No cloud platforms (AWS) or web-based UI (Streamlit) were used.
+* No cloud platforms (AWS) or web-based UI (Streamlit) were used.
 
-The API accepts feature inputs and returns forecasted sales for integration with other systems.
+* The API accepts feature inputs and returns forecasted sales for integration with other systems.
 
 
 **Recommendations**
