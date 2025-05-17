@@ -1,11 +1,13 @@
 **🛍️ Product Sales Forecasting**
 
 **📌 Problem Statement**
+
 In the competitive retail industry, the ability to accurately forecast product sales is critical for effective inventory management, staffing, marketing, and overall business strategy. This project develops a predictive model to estimate future product sales across multiple stores by leveraging historical sales data and important factors such as store type, location, promotions, holidays, and seasonality.
 
 **🎯 Objective & Target Metric**
 
-**Goal: **Build a reliable model to forecast product sales with high accuracy across various stores.
+**Goal:**
+Build a reliable model to forecast product sales with high accuracy across various stores.
 
 **Primary Evaluation Metric:**
 Mean Absolute Percentage Error (MAPE) — chosen for its interpretability and relevance in expressing forecast errors as percentages.
@@ -13,12 +15,14 @@ Mean Absolute Percentage Error (MAPE) — chosen for its interpretability and re
 **🧠 Approach & Methodology**
 
 **1. Exploratory Data Analysis (EDA)**
+
    a. Examined the distribution of stores by type and region.
    b. Analyzed sales distribution and identified outliers.
    c. Explored temporal trends and seasonality in sales.
    d. Assessed the impact of promotions and holidays on sales.
 
 **2. Hypothesis Testing**
+
      a. Discount Day Average Sales are higher than average sales on Non-Discount Days
      b. Holiday Average Sales are lesser than average sales on Non-Holidays
      c. Average Sales of Store Type S4 is higher and is followed by S3 , S1 ,S2.
@@ -26,17 +30,18 @@ Mean Absolute Percentage Error (MAPE) — chosen for its interpretability and re
      e. A higher number of orders strongly and significantly correlates with higher sales. The relationship is positive and monotonic — as order count increases, so does sales.
 
 **3. Feature Engineering**
+
      a. Created temporal features such as day of week, month, holiday flags, and lagged sales.
      b. Encoded categorical variables for store type, location type, and region.
      c. Added rolling averages and previous sales metrics to capture trends.
 
 **4. Machine Learning Modelling**
+
      a. Trained classical time series models: ARIMA (14.93% MAPE), SARIMAX (8.51%), Prophet (19.63%)
      b. Developed machine learning models:
-
-  Linear Regression: 9.02% MAPE
-  Random Forest Regressor: 9.44% MAPE
-  XGBoost Regressor: 2.58% MAPE (best performer)
+   Linear Regression: 9.02% MAPE
+   Random Forest Regressor: 9.44% MAPE
+   XGBoost Regressor: 2.58% MAPE (best performer)
 
 **📊 Key Insights**
 Store and Location Distribution:
